@@ -1,0 +1,31 @@
+<!-- online js dollar formatter found at  https://flaviocopes.com/how-to-format-number-as-currency-javascript/-->
+<% const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2
+}) %> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome To Properties Index</h1>
+  <img src="<%= property.img%>" alt="<%= property.address%>">
+  <h4>Street Address: <%= property.address%>"</h4>
+  <p>Bedrooms: <%= property.bedrooms%> </p>
+  <p>Lot Size: <%= property.lot%> </p>
+  <p><strong>Price: </strong><%= formatter.format(property.price)%> </p>
+
+  <form action="/properties/<%=propertyIndex%>?_method=DELETE" method="POST">
+    <input type="submit" value="Property Sold">
+  </form>
+
+  <form action="/properties/<%=propertyIndex%>/edit" method="GET">
+    <input type="submit" value="Edit Property">
+  </form>
+</body>
+</html>

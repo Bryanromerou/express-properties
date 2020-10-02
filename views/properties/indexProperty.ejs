@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome To Properties Index</h1>
+  <% for (let i = 0; i < properties.length; i++) { %>
+    <li style="margin-bottom: 20px;">
+      <a href="/properties/<%= i %>">
+        <%= properties[i].address %>
+      </a>    
+    </li>
+  <% } %>
+</body>
+</html>
