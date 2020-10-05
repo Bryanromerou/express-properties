@@ -1,0 +1,43 @@
+<!-- online js dollar formatter found at  https://flaviocopes.com/how-to-format-number-as-currency-javascript/-->
+<% const formatter = new Intl.NumberFormat('en-US', {
+style: 'currency',
+currency: 'USD',
+minimumFractionDigits: 2
+}) %> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Property</title>
+</head>
+<body>
+<form action="/properties" method="POST">
+    <h1>New Property</h1>
+
+    <div>
+        <label for="address">Address:</label>
+        <input type="text" id = "address" name  = "address" >
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="text" id = "price" name  = "price" >
+    </div>
+    <div>
+        <label for="bedrooms">Bedrooms:</label>
+        <input type="text" id = "bedrooms" name  = "bedrooms" >
+    </div>
+    <div>
+        <label for="lot">Lot size:</label>
+        <input type="text" id = "lot" name  = "lot">
+    </div>
+    <div>
+        <label for="img">Image Url:</label>
+        <input type="text" id = "img" name  = "img">
+    </div>
+    
+    <input type="submit" value="Add New Property">
+</form>
+</body>
+</html>

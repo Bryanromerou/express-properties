@@ -11,6 +11,24 @@ router.get("/",(req,res)=>{
     });
 });
 
+//New
+router.get("/new",(req,res)=>{
+    res.render("properties/newProperty");
+});
+
+//create
+router.post("/", (req,res)=>{
+    const newProperty = {
+        address: req.body.address,
+        price: req.body.price,
+        bedrooms: req.body.bedrooms,
+        lot: req.body.lot,
+        img: req.body.img,
+    }
+    properties.push(newProperty);
+    res.redirect(`/properties/${properties.length-1}`);
+});
+
 //Show
 router.get("/:propertyIndex",(req,res)=>{
     const propertyIndex = req.params.propertyIndex;
@@ -33,26 +51,26 @@ router.get("/:propertyIndex/edit",(req,res)=>{
     });
 });
 
-//Destroy
-router.delete("/:propertyIndex",(req,res)=>{
-    const propertyIndex = req.params.propertyIndex;
-    properties.splice(propertyIndex,1);
-    res.redirect(`/properties/${propertyIndex}`);
-});
-
 //Update
 router.put("/:propertyIndex",(req,res) => {
     const propertyIndex = req.params.propertyIndex;
-    const newFruit = {
+    const newProperty = {
         address: req.body.address,
         price: req.body.price,
         bedrooms: req.body.bedrooms,
         lot: req.body.lot,
         img: req.body.img,
     }
-    properties[propertyIndex] = newFruit;
-    // properties.splice(propertyIndex,1,newFruit);
+    properties[propertyIndex] = newProperty;
+    // properties.splice(propertyIndex,1,newProperty);
     res.redirect(`/properties/${propertyIndex}`);
+    
+});
 
+//Destroy
+router.delete("/:propertyIndex",(req,res)=>{
+    const propertyIndex = req.params.propertyIndex;
+    properties.splice(propertyIndex,1);
+    res.redirect(`/properties/${propertyIndex}`);
 });
 module.exports = router;
